@@ -40,6 +40,8 @@ export class ObtenerDatosService {
     } 
   ])
 
+  filtro = signal('')
+
   obtenerDatos():DatosTabla[]{
     return this.datos()
   }
@@ -47,5 +49,6 @@ export class ObtenerDatosService {
   addCliente(cliente:DatosTabla){
     this.datos().push(cliente)
   }
+
 
 }

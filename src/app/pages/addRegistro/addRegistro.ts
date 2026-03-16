@@ -5,12 +5,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { DatosTabla } from '../../interfaces/datosTabla.interface';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
-import { JsonPipe } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-registro',
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatError, ReactiveFormsModule, JsonPipe],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatError, ReactiveFormsModule],
   templateUrl: './addRegistro.html',
   styleUrl: './addRegistro.css',
 })
