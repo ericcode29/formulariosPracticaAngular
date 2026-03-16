@@ -1,0 +1,11 @@
+<section class="nav-section">
+    <mat-form-field appearance="outline" class="buscador-input">
+        <mat-label>Buscar</mat-label>
+        <input type="text" matInput placeholder="Buscar ...">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <nav>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a routerLink="/registros" routerLinkActive="active">Añadir registro</a>
+    </nav>
+</section>

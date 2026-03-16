@@ -1,0 +1,25 @@
+<section>
+    <h1>Datos clientes</h1>
+    <p-table [value]="datos" stripedRows>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Usuario</th>
+                <th>Empresa <br/> CIF</th>
+                <th>Teléfono <br/> Email</th>
+                <th>Dirección</th>
+                <th>Comercial</th>
+                <th>Tipo</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dato>
+            <tr>
+                <td>{{dato.usuario}}</td>
+                <td>{{dato.empresa}}<br/>{{dato.cif}}</td>
+                <td>{{dato.telefono}}<br/>{{dato.email}}</td>
+                <td>{{dato.direccion}}</td>
+                <td>{{dato.comercial}}</td>
+                <td>{{dato.tipo}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</section>

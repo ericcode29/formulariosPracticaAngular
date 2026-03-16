@@ -1,0 +1,64 @@
+
+<section class="form-section">
+    <form [formGroup]="addForm" (ngSubmit)="crearUsuario()" reset>
+        <mat-form-field appearance="outline">
+            <mat-label>Usuario</mat-label>
+            <input type="text" matInput placeholder="Usuario" formControlName="usuario" required>
+        @if(isValidForm('usuario')){
+                <mat-error>{{mostrarError('usuario')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Empresa</mat-label>
+            <input type="text" matInput placeholder="Empresa" formControlName="empresa" required>
+            @if(isValidForm('empresa')){
+                <mat-error>{{mostrarError('empresa')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>CIF</mat-label>
+            <input type="text" matInput placeholder="CIF" required formControlName="cif">
+            @if(isValidForm('cif')){
+                <mat-error>{{mostrarError('cif')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Email" required formControlName="email">
+            @if(isValidForm('email')){
+                <mat-error>{{mostrarError('email')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Telefono</mat-label>
+            <input type="number" matInput placeholder="Telefono" formControlName="telefono">
+            @if(isValidForm('telefono')){
+                <mat-error>{{mostrarError('telefono')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Dirección</mat-label>
+            <input type="text" matInput placeholder="Dirección" formControlName="direccion">
+            @if(isValidForm('direccion')){
+                <mat-error>{{mostrarError('direccion')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Comercial</mat-label>
+            <input type="text" matInput placeholder="Comercial" required formControlName="comercial">
+            @if(isValidForm('comercial')){
+                <mat-error>{{mostrarError('comercial')}}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo</mat-label>
+            <input type="text" matInput placeholder="Tipo" formControlName="tipo">
+            @if(isValidForm('tipo')){
+                <mat-error>{{mostrarError('tipo')}}</mat-error>
+            }
+        </mat-form-field>
+        <button mat-raised-button type="submit" >Crear cliente</button>
+    </form>
+    
+    
+</section>
