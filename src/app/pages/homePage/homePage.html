@@ -1,6 +1,31 @@
 <div class="home">
     <section class="historial">
         <h2>Historial de busqueda</h2>
+        <ul>
+           @for(item of his(); track $index){
+            @if(item===''){
+                <div class="btns">
+                    <button mat-fab extended [value]="''" 
+                        #btnHistorial 
+                        (click)="datosService.filtro.set('')"
+                        >
+                        Todos
+                    </button>
+                </div>
+            }@else{
+                <div class="btns">
+                    <button mat-fab extended [value]="item" 
+                        #btnHistorial 
+                        (click)="datosService.filtro.set(item)"
+                        >
+                        {{item}}
+                    </button>
+                    <button mat-mini-fab (click)="borrarHistorial(item)">❌</button>
+                </div>
+            }
+             
+        }
+        </ul>
     </section>
 
     <section class="tabla">

@@ -41,6 +41,7 @@ export class ObtenerDatosService {
   ])
 
   filtro = signal('')
+  historial = signal<Set<string>>(new Set(['']))
 
   obtenerDatos():DatosTabla[]{
     return this.datos()
@@ -48,6 +49,10 @@ export class ObtenerDatosService {
 
   addCliente(cliente:DatosTabla){
     this.datos().push(cliente)
+  }
+
+  addHistorial(value:string){
+    this.historial.update(hist => new Set([...hist, value]))
   }
 
 

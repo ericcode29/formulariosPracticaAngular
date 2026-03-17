@@ -15,10 +15,10 @@ import { ObtenerDatosService } from '../../services/obtenerDatos.service';
 export class NavBar {
 
   datosService = inject(ObtenerDatosService)
-  filtro(event: Event){
-    const filtro = (event.target as HTMLInputElement).value
-    this.datosService.filtro.set(filtro)
-  }
 
+  filtro(value: string){
+    this.datosService.filtro.set(value)
+  }
+  
 
  }

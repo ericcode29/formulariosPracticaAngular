@@ -1,7 +1,14 @@
 <section class="nav-section">
     <mat-form-field appearance="outline" class="buscador-input">
         <mat-label>Buscar</mat-label>
-        <input type="text" matInput placeholder="Buscar ..." (input)="filtro($event)">
+        <input type="text"
+        #buscar 
+        matInput 
+        placeholder="Buscar ..." 
+        (input)="filtro(buscar.value)"
+        (blur)="datosService.addHistorial(buscar.value)"
+        (blur)="buscar.value = ''"
+        >
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <nav>

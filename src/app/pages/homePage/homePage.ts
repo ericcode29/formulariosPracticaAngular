@@ -2,11 +2,12 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { TableModule } from 'primeng/table';
 import { DatosTabla } from '../../interfaces/datosTabla.interface';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
+import { MatButtonModule } from "@angular/material/button";
 
 
 @Component({
   selector: 'app-home-page',
-  imports: [TableModule],
+  imports: [TableModule, MatButtonModule],
   templateUrl: './homePage.html',
   styleUrl: './homePage.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,6 +15,10 @@ import { ObtenerDatosService } from '../../services/obtenerDatos.service';
 export class HomePage {
 
   datosService = inject(ObtenerDatosService)
+  his = computed(() => {
+    return this.datosService.historial()
+  })
+  
   datos = computed(() => {
     const filtro = this.datosService.filtro().toLocaleLowerCase()
     const dt = this.datosService.obtenerDatos()
@@ -24,6 +29,14 @@ export class HomePage {
       return dato.usuario.toLocaleLowerCase().includes(filtro) || dato.email.toLocaleLowerCase().includes(filtro) || dato.comercial.toLocaleLowerCase().includes(filtro) || dato.empresa.toLocaleLowerCase().includes(filtro)
     })
   })
+
+  clickHistorial(value:string){
+    this.datosService.filtro.set(value)
   }
+
+  borrarHistorial(value:string){
+    this.datosService.historial().delete(value)
+  }
+}
 
 
