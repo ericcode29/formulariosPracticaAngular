@@ -42,6 +42,7 @@ export class ObtenerDatosService {
 
   filtro = signal('')
   historial = signal<Set<string>>(new Set(['']))
+  clienteSeleccionado = signal<DatosTabla[]>([])
 
   obtenerDatos():DatosTabla[]{
     return this.datos()

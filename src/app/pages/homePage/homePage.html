@@ -39,6 +39,7 @@
                     <th>Dirección</th>
                     <th>Comercial</th>
                     <th>Tipo</th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-dato>
@@ -49,6 +50,9 @@
                     <td>{{dato.direccion}}</td>
                     <td>{{dato.comercial}}</td>
                     <td>{{dato.tipo}}</td>
+                    <td class="grupo-btn">
+                        <button mat-mini-fab class="btn-edit" (click)="editarCliente(dato)">📝</button>                  
+                    </td>
                 </tr>
             </ng-template>
         </p-table>

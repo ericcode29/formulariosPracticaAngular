@@ -53,4 +53,13 @@ ul div{
   background-color: #ffbaba;
 }
 
+.btn-edit{
+  background-color: #0057E6;
+}
+
+.grupo-btn{
+  display: flex;
+  gap: 0.5em;
+}
+
 

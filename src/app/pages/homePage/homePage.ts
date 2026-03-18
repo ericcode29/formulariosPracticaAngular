@@ -2,7 +2,16 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { TableModule } from 'primeng/table';
 import { DatosTabla } from '../../interfaces/datosTabla.interface';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
+import { EditarCliente } from '../../components/editarCliente/editarCliente';
 import { MatButtonModule } from "@angular/material/button";
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 
 
 @Component({
@@ -15,6 +24,8 @@ import { MatButtonModule } from "@angular/material/button";
 export class HomePage {
 
   datosService = inject(ObtenerDatosService)
+  dialog = inject(MatDialog)
+
   his = computed(() => {
     return this.datosService.historial()
   })
@@ -30,12 +41,19 @@ export class HomePage {
     })
   })
 
+  clienteSeleccionado = this.datosService.clienteSeleccionado
+
   clickHistorial(value:string){
     this.datosService.filtro.set(value)
   }
 
   borrarHistorial(value:string){
     this.datosService.historial().delete(value)
+  }
+
+  editarCliente(cliente: DatosTabla){
+    this.clienteSeleccionado.set([cliente])
+    this.dialog.open(EditarCliente, {width:'66%'})
   }
 }
 
