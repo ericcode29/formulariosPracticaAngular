@@ -62,7 +62,7 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial>Guardar cambios</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="guardarCambios()">Guardar cambios</button>
   <button mat-button mat-dialog-close (click)="cerrar()">Cancelar</button>
 </mat-dialog-actions>
 

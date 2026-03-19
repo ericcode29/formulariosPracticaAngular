@@ -7,7 +7,7 @@ import {HomePage} from '../pages/homePage/homePage'
 })
 export class ObtenerDatosService {
 
-   private datos = signal<DatosTabla[]>([
+  datos = signal<DatosTabla[]>([
     {
       usuario:'Alfredo',
       empresa: 'Una cualquiera',
@@ -43,6 +43,7 @@ export class ObtenerDatosService {
   filtro = signal('')
   historial = signal<Set<string>>(new Set(['']))
   clienteSeleccionado = signal<DatosTabla[]>([])
+  indexClienteSeleccionado = signal<number>(0)
 
   obtenerDatos():DatosTabla[]{
     return this.datos()

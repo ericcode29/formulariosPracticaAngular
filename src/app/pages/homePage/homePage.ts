@@ -25,6 +25,9 @@ export class HomePage {
 
   datosService = inject(ObtenerDatosService)
   dialog = inject(MatDialog)
+  clienteSeleccionado = this.datosService.clienteSeleccionado
+  index = this.datosService.indexClienteSeleccionado
+  
 
   his = computed(() => {
     return this.datosService.historial()
@@ -41,8 +44,6 @@ export class HomePage {
     })
   })
 
-  clienteSeleccionado = this.datosService.clienteSeleccionado
-
   clickHistorial(value:string){
     this.datosService.filtro.set(value)
   }
@@ -51,8 +52,13 @@ export class HomePage {
     this.datosService.historial().delete(value)
   }
 
-  editarCliente(cliente: DatosTabla){
+  getIndex(i:number){
+    console.log(i)
+  }
+
+  editarCliente(cliente: DatosTabla, i:number){
     this.clienteSeleccionado.set([cliente])
+    this.index.set(i)
     this.dialog.open(EditarCliente, {width:'66%'})
   }
 }

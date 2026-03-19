@@ -42,7 +42,7 @@
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-dato>
+            <ng-template pTemplate="body" let-dato let-i="rowIndex">
                 <tr>
                     <td>{{dato.usuario}}</td>
                     <td>{{dato.empresa}}<br/>{{dato.cif}}</td>
@@ -51,7 +51,7 @@
                     <td>{{dato.comercial}}</td>
                     <td>{{dato.tipo}}</td>
                     <td class="grupo-btn">
-                        <button mat-mini-fab class="btn-edit" (click)="editarCliente(dato)">📝</button>                  
+                        <button mat-mini-fab class="btn-edit" (click)="editarCliente(dato, i)" >📝</button>                  
                     </td>
                 </tr>
             </ng-template>

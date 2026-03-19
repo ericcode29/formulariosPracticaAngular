@@ -13,6 +13,7 @@ import { MatFormField, MatLabel, MatError } from "@angular/material/form-field";
 import { HomePage } from '../../pages/homePage/homePage';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
 import { MatInput, MatInputModule } from '@angular/material/input';
+import { DatosTabla } from '../../interfaces/datosTabla.interface';
 
 @Component({
   selector: 'app-editar-cliente',
@@ -31,7 +32,10 @@ export class EditarCliente {
   
   fb = inject(FormBuilder)
   dialog = inject(MatDialog)
-  cliente = inject(ObtenerDatosService).clienteSeleccionado()[0]
+  datosSevice = inject(ObtenerDatosService)
+
+  cliente = this.datosSevice.clienteSeleccionado()[0]
+  index = this.datosSevice.indexClienteSeleccionado
   emailregx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'
 
   editForm: FormGroup= this.fb.group({
@@ -79,6 +83,23 @@ export class EditarCliente {
     this.dialog.closeAll()
   }
 
-  //hacer funcion para guardar los cambios del cliente
+  guardarCambios(){
+    const newcliente = this.editForm.value
+    const cliente:DatosTabla={
+      usuario: newcliente['usuario'],
+      empresa: newcliente['empresa'],
+      cif: newcliente['cif'],
+      telefono:newcliente['telefono'],
+      direccion:newcliente['direccion'],
+      email: newcliente['email'],
+      comercial:newcliente['comercial'],
+      tipo:newcliente['tipo']
+    }
+    this.datosSevice.datos()[this.index()] = cliente
+    this.datosSevice.datos.update( datos => [...datos])
+    
+    this.dialog.closeAll()
+
+  }
 
 }
