@@ -56,9 +56,10 @@ export class HomePage {
     console.log(i)
   }
 
-  editarCliente(cliente: DatosTabla, i:number){
+  editarCliente(cliente: DatosTabla){
+    const index = this.datosService.datos().indexOf(cliente)
     this.clienteSeleccionado.set([cliente])
-    this.index.set(i)
+    this.index.set(index)
     this.dialog.open(EditarCliente, {width:'66%'})
   }
 }
