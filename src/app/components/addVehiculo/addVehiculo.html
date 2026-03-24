@@ -1,0 +1,23 @@
+<div>
+    <h2>Añade un vehículo</h2>
+    <mat-dialog-content>
+        <form [formGroup]="vehiculoForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Matrícula</mat-label>
+                <input matInput tipe="text" formControlName="vehiculo">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Dispositivo</mat-label>
+                <input matInput tipe="text" formControlName="dispositivo">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tarjeta</mat-label>
+                <input matInput tipe="text" formControlName="tarjeta">
+            </mat-form-field>
+        </form>
+        <div class="btn-addVehiculo">
+            <button mat-button mat-dialog-close (click)="addVehiculo(cliente[0])">Añadir</button>
+            <button mat-button mat-dialog-close>Cancelar</button>
+        </div>
+    </mat-dialog-content>
+</div>

@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { DatosTabla } from '../interfaces/datosTabla.interface';
-import {HomePage} from '../pages/homePage/homePage'
+import { HomePage } from '../pages/homePage/homePage'
 
 @Injectable({
   providedIn: 'root'
@@ -9,35 +9,44 @@ export class ObtenerDatosService {
 
   datos = signal<DatosTabla[]>([
     {
-      usuario:'Alfredo',
+      usuario: 'Alfredo',
       empresa: 'Una cualquiera',
       cif: 'ABCD1234',
-      telefono:987654321,
+      telefono: 987654321,
       email: 'aflredo@uncualquiera.com',
       direccion: 'su calle',
       comercial: 'Agus',
-      tipo:'user'
+      tipo: 'user',
+      vehiculo: []
     },
     {
-      usuario:'Alfredo',
+      usuario: 'Alfredo +',
       empresa: 'Una cualquiera',
       cif: 'ABCD1234',
-      telefono:987654321,
+      telefono: 987654321,
       email: 'aflredo@uncualquiera.com',
       direccion: 'su calle',
       comercial: 'Agus',
-      tipo:'user'
+      tipo: 'user',
+      vehiculo: [{
+        vehiculo: '2801FTY',
+        dispositivo: '112233A',
+        tarjeta: '111222333R',
+        estado: 'Aparcao',
+        ultimaPosicion: {}
+      }]
     },
     {
-      usuario:'Alfredo',
+      usuario: 'Alfredo',
       empresa: 'Una cualquiera',
       cif: 'ABCD1234',
-      telefono:987654321,
+      telefono: 987654321,
       email: 'aflredo@uncualquiera.com',
       direccion: 'su calle',
       comercial: 'Agus',
-      tipo:'user'
-    } 
+      tipo: 'user',
+      vehiculo: []
+    },
   ])
 
   filtro = signal('')
@@ -45,15 +54,15 @@ export class ObtenerDatosService {
   clienteSeleccionado = signal<DatosTabla[]>([])
   indexClienteSeleccionado = signal<number>(0)
 
-  obtenerDatos():DatosTabla[]{
+  obtenerDatos(): DatosTabla[] {
     return this.datos()
   }
 
-  addCliente(cliente:DatosTabla){
+  addCliente(cliente: DatosTabla) {
     this.datos().push(cliente)
   }
 
-  addHistorial(value:string){
+  addHistorial(value: string) {
     this.historial.update(hist => new Set([...hist, value]))
   }
 

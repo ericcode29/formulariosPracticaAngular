@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { MatError, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { DatosTabla } from '../../interfaces/datosTabla.interface';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './addRegistro.html',
   styleUrl: './addRegistro.css',
 })
-export class AddRegistro { 
+export class AddRegistro {
 
   fb = inject(FormBuilder)
   datosService = inject(ObtenerDatosService)
@@ -23,8 +23,8 @@ export class AddRegistro {
   addForm: FormGroup = this.fb.group({
     usuario: ['', [Validators.required, Validators.minLength(3)]],
     empresa: ['', [Validators.required]],
-    cif: ['',[Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
-    email: ['',[Validators.required, Validators.pattern(this.emailregx)]],
+    cif: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]],
+    email: ['', [Validators.required, Validators.pattern(this.emailregx)]],
     telefono: [0, [Validators.max(999999999), Validators.min(99999999)]],
     direccion: [''],
     comercial: ['', [Validators.required, Validators.minLength(3)]],
@@ -32,14 +32,14 @@ export class AddRegistro {
 
   })
 
-  mostrarError(nombreInput:string): string | null{
+  mostrarError(nombreInput: string): string | null {
 
-    if(!this.addForm.controls[nombreInput]) return null
+    if (!this.addForm.controls[nombreInput]) return null
 
     const error = this.addForm.controls[nombreInput].errors ?? {}
 
-    for(const key of Object.keys(error)){
-      switch(key){
+    for (const key of Object.keys(error)) {
+      switch (key) {
         case 'required':
           return 'Campo requerido'
         case 'minlength':
@@ -58,46 +58,47 @@ export class AddRegistro {
 
   }
 
-  isValidForm(nombreInput:string):boolean|null{
+  isValidForm(nombreInput: string): boolean | null {
     return (this.addForm.controls[nombreInput].errors && this.addForm.controls[nombreInput].touched)
   }
 
-  crearUsuario(){
+  crearUsuario() {
 
-    if(this.addForm.invalid){
+    if (this.addForm.invalid) {
       window.alert('Por favor corrija los campos')
       return
     }
-  
+
     const newcliente = this.addForm.value
-    const cliente:DatosTabla={
+    const cliente: DatosTabla = {
       usuario: newcliente['usuario'],
       empresa: newcliente['empresa'],
       cif: newcliente['cif'],
-      telefono:newcliente['telefono'],
-      direccion:newcliente['direccion'],
+      telefono: newcliente['telefono'],
+      direccion: newcliente['direccion'],
       email: newcliente['email'],
-      comercial:newcliente['comercial'],
-      tipo:newcliente['tipo']
+      comercial: newcliente['comercial'],
+      tipo: newcliente['tipo'],
+      vehiculo: []
     }
 
     this.datosService.addCliente(cliente)
-    
+
     this.addForm.reset({
       usuario: '',
       empresa: '',
       cif: '',
-      telefono:0,
-      direccion:'',
-      email:'',
+      telefono: 0,
+      direccion: '',
+      email: '',
       comercial: '',
-      tipo:''
+      tipo: ''
     })
 
     window.alert('Usuario añadido')
     this.router.navigate([''])
-    
-    
+
+
   }
 
 }

@@ -1,0 +1,35 @@
+<section>
+    <header class="header">
+        <div class="btn-accion">
+            <a routerLink="''"><button mat-mini-fab>↩️</button></a>
+            <button mat-mini-fab (click)="addVehiculo(cliente())">+🚗</button>
+        </div>
+        <h2>Vehículos de {{cliente().usuario}}</h2>
+        <div class="spacer"></div>
+    </header>
+    <div class="cards">
+        @for (v of vehiculo(); track $index) {
+        <mat-card appearance="outlined" class="card">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>Matricula: {{v.vehiculo}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div>
+                    <h4>Dispositivo</h4>
+                    <p>{{v.dispositivo}}</p>
+                </div>
+                <div>
+                    <h4>Tarjeta</h4>
+                    <p>{{v.tarjeta}}</p>
+                </div>
+                <div>
+                    <h4>Estado</h4>
+                    <p>{{v.estado}}</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        }
+    </div>
+</section>

@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+section {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-accion {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1; /* Esto ayuda a equilibrar con el spacer */
+}
+
+.header h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.spacer {
+  flex: 1; /* Equilibra el ancho de .btn-accion para centrar el h2 */
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+}
