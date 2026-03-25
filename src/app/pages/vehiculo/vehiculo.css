@@ -19,7 +19,8 @@ section {
 .btn-accion {
   display: flex;
   gap: 0.5rem;
-  flex: 1; /* Esto ayuda a equilibrar con el spacer */
+  flex: 1;
+  /* Esto ayuda a equilibrar con el spacer */
 }
 
 .header h2 {
@@ -28,7 +29,8 @@ section {
 }
 
 .spacer {
-  flex: 1; /* Equilibra el ancho de .btn-accion para centrar el h2 */
+  flex: 1;
+  /* Equilibra el ancho de .btn-accion para centrar el h2 */
 }
 
 .cards {
@@ -40,7 +42,39 @@ section {
 
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   padding: 1rem;
+  background-color: #d7e3ff;
+}
+
+.header-card {
+  color: white;
+  background-color: #0057E6;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.mat-mdc-card-subtitle {
+  color: white;
+}
+
+.content-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-card {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-card .mat-mdc-mini-fab {
+  background-color: #0057E6;
 }

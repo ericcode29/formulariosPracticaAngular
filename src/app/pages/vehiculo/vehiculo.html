@@ -10,12 +10,11 @@
     <div class="cards">
         @for (v of vehiculo(); track $index) {
         <mat-card appearance="outlined" class="card">
-            <mat-card-header>
-                <mat-card-title>
-                    <h3>Matricula: {{v.vehiculo}}</h3>
-                </mat-card-title>
+            <mat-card-header class="header-card">
+                <mat-card-title>{{v.vehiculo}}</mat-card-title>
+                <mat-card-subtitle>{{v.tipo}}</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="content-card">
                 <div>
                     <h4>Dispositivo</h4>
                     <p>{{v.dispositivo}}</p>
@@ -28,7 +27,23 @@
                     <h4>Estado</h4>
                     <p>{{v.estado}}</p>
                 </div>
+                <div>
+                    <h4>Direccion</h4>
+                    <p>Calle Veosat</p>
+                </div>
+                <div>
+                    <h4>Señal GPS</h4>
+                    <p>👌</p>
+                </div>
+                <div>
+                    <h4>Señal GSM</h4>
+                    <p>✅</p>
+                </div>
             </mat-card-content>
+            <mat-card-footer class="footer-card">
+                <button mat-mini-fab>📝</button>
+                <button mat-mini-fab>🗑️</button>
+            </mat-card-footer>
         </mat-card>
         }
     </div>

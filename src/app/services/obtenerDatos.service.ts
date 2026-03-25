@@ -11,7 +11,7 @@ export class ObtenerDatosService {
     {
       usuario: 'Alfredo',
       empresa: 'Una cualquiera',
-      cif: 'ABCD1234',
+      cif: 'ABCD12345',
       telefono: 987654321,
       email: 'aflredo@uncualquiera.com',
       direccion: 'su calle',
@@ -22,7 +22,7 @@ export class ObtenerDatosService {
     {
       usuario: 'Alfredo +',
       empresa: 'Una cualquiera',
-      cif: 'ABCD1234',
+      cif: 'ABCD12345',
       telefono: 987654321,
       email: 'aflredo@uncualquiera.com',
       direccion: 'su calle',
@@ -33,13 +33,14 @@ export class ObtenerDatosService {
         dispositivo: '112233A',
         tarjeta: '111222333R',
         estado: 'Aparcao',
+        tipo: 'Camión',
         ultimaPosicion: {}
       }]
     },
     {
       usuario: 'Alfredo',
       empresa: 'Una cualquiera',
-      cif: 'ABCD1234',
+      cif: 'ABCD12345',
       telefono: 987654321,
       email: 'aflredo@uncualquiera.com',
       direccion: 'su calle',

@@ -4,15 +4,11 @@ import { MatButtonModule } from '@angular/material/button';
 import {
   MatDialog,
   MatDialogActions,
-  MatDialogClose,
   MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatFormField, MatLabel, MatError } from "@angular/material/form-field";
-import { HomePage } from '../../pages/homePage/homePage';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { DatosTabla } from '../../interfaces/datosTabla.interface';
 
 @Component({
@@ -24,7 +20,8 @@ import { DatosTabla } from '../../interfaces/datosTabla.interface';
     MatInputModule,
     ReactiveFormsModule,
     MatLabel,
-    MatError],
+    MatError,
+  ],
   templateUrl: './editarCliente.html',
   styleUrl: './editarCliente.css',
 })
@@ -61,9 +58,9 @@ export class EditarCliente {
         case 'required':
           return 'Campo requerido'
         case 'minlength':
-          return `Se necesitan al menos ${error['minlength'].requiredLength} de caracteres`
+          return `Se necesitan al menos ${error['minlength'].requiredLength} caracteres`
         case 'maxlength':
-          return `No puede exceder más de ${error['maxlength'].requiredLength} de caracteres`
+          return `No puede exceder más de ${error['maxlength'].requiredLength} caracteres`
         case 'pattern':
           return 'Email inválido'
         case 'min':

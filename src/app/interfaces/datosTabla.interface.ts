@@ -16,6 +16,7 @@ export interface Vehiculo {
     vehiculo: string,
     dispositivo: string,
     tarjeta: string,
-    estado: string
+    estado: string,
+    tipo: string,
     ultimaPosicion: object
 }

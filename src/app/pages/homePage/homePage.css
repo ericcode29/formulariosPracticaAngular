@@ -1,5 +1,4 @@
-
-.tabla{
+.tabla {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -7,19 +6,19 @@
   text-align: center;
 }
 
-.p-table{
+.p-table {
   color: white;
 }
 
-.home{
+.home {
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 2em;
   justify-items: center;
 }
 
-.historial{
-  background-color: #9c9c9c;
+.historial {
+  background-color: #d7e3ff;
   width: 100%;
   height: 100vh;
   padding: 1em;
@@ -27,7 +26,7 @@
   border: solid white 3px;
 }
 
-ul{
+ul {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -37,29 +36,28 @@ ul{
   gap: 0.5em;
 }
 
-ul div{
+ul div {
   display: grid;
   grid-template-columns: 4fr 1fr;
   gap: 1em;
   align-items: center;
-  width: 100%;  
+  width: 100%;
 }
 
-.mat-mdc-fab{
+.mat-mdc-fab {
   background-color: #0057E6;
   color: white;
 }
-.mat-mdc-mini-fab{
+
+.mat-mdc-mini-fab {
   background-color: #ffbaba;
 }
 
-.btn-edit{
+.btn-edit {
   background-color: #0057E6;
 }
 
-.grupo-btn{
+.grupo-btn {
   display: flex;
   gap: 0.5em;
 }
-
-

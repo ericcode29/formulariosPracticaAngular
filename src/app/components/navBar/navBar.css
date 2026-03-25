@@ -1,55 +1,52 @@
-
-.nav-section{
+.nav-section {
   display: flex;
   align-items: center;
   gap: 2rem;
   padding: 1rem;
-  background-color: #9c9c9c;
+  background-color: #d7e3ff;
 }
 
-.buscador-input{
-  color: white;
+.buscador-input {
+  color: black;
 }
 
-mat-icon{
-  color: white;
+mat-icon {
+  color: black;
 }
 
-nav{
+nav {
   display: flex;
   gap: 1rem;
 }
 
-.nav-section a{
+.nav-section a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
-.nav-section a:hover{
+.nav-section a:hover {
   color: #0057E6;
   scale: 1.05;
   transition: all 0.3s ease;
 }
 
-.nav-section a.active{
+.nav-section a.active {
   color: #0057E6
 }
 
-.buscador-input{
-  --mat-sys-primary: #0057E6; 
-  --mdc-outlined-text-field-outline-color: white;
-  --mdc-outlined-text-field-label-text-color: white;
-  --mdc-outlined-text-field-activated-label-text-color: white;
+.buscador-input {
+  --mat-sys-primary: #0057E6;
+  --mdc-outlined-text-field-outline-color: black;
+  --mdc-outlined-text-field-label-text-color: black;
+  --mdc-outlined-text-field-activated-label-text-color: black;
   --mdc-outlined-text-field-hover-outline-color: #0057E6;
   --mdc-outlined-text-field-hover-label-text-color: #0057E6;
 }
 
-.buscador-input input{
-  color: white;
+.buscador-input input {
+  color: black;
 }
 
 .buscador-input input::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: black !important;
 }
-
-
