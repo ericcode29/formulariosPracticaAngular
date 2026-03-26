@@ -11,8 +11,9 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { DatosTabla } from '../../interfaces/datosTabla.interface';
+import { DatosTabla, Vehiculo } from '../../interfaces/datosTabla.interface';
 import { AddVehiculo } from '../../components/addVehiculo/addVehiculo';
+import { EditarVehiculo } from '../../components/editarVehiculo/editarVehiculo';
 
 @Component({
   selector: 'app-vehiculo',
@@ -24,7 +25,7 @@ import { AddVehiculo } from '../../components/addVehiculo/addVehiculo';
   templateUrl: './vehiculo.html',
   styleUrl: './vehiculo.css',
 })
-export class Vehiculo {
+export class VehiculoPage {
 
   datosService = inject(ObtenerDatosService)
   dialog = inject(MatDialog)
@@ -41,6 +42,11 @@ export class Vehiculo {
   addVehiculo(cliente: DatosTabla) {
     console.log(cliente)
     this.dialog.open(AddVehiculo)
+  }
+
+  editar(v: Vehiculo) {
+    this.datosService.vehiculoSeleccionado.set(v);
+    this.dialog.open(EditarVehiculo);
   }
 }
 

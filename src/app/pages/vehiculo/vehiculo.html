@@ -39,9 +39,12 @@
                     <h4>Señal GSM</h4>
                     <p>✅</p>
                 </div>
+                <section class="mapa">
+                    <img mat-card-md-image [src]="v.ultimaPosicion.src" [alt]="v.ultimaPosicion.alt">
+                </section>
             </mat-card-content>
             <mat-card-footer class="footer-card">
-                <button mat-mini-fab>📝</button>
+                <button mat-mini-fab (click)="editar(v)">📝</button>
                 <button mat-mini-fab>🗑️</button>
             </mat-card-footer>
         </mat-card>

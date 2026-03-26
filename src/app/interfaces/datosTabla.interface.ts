@@ -18,5 +18,8 @@ export interface Vehiculo {
     tarjeta: string,
     estado: string,
     tipo: string,
-    ultimaPosicion: object
+    ultimaPosicion: {
+        src: string;
+        alt: string;
+    }
 }

@@ -1,0 +1,45 @@
+<div>
+    <h2>Editar vehículo</h2>
+    <mat-dialog-content>
+        <form [formGroup]="vehiculoForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Matrícula</mat-label>
+                <input matInput tipe="text" formControlName="vehiculo">
+                @if(isValidForm('vehiculo')){
+                <mat-error>{{mostrarError('vehiculo')}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Dispositivo</mat-label>
+                <input matInput tipe="text" formControlName="dispositivo">
+                @if(isValidForm('dispositivo')){
+                <mat-error>{{mostrarError('dispositivo')}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tarjeta</mat-label>
+                <input matInput tipe="text" formControlName="tarjeta">
+                @if(isValidForm('tarjeta')){
+                <mat-error>{{mostrarError('tarjeta')}}</mat-error>
+                }
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo</mat-label>
+                <mat-select formControlName="tipo">
+                    <mat-option value="Camión">Camión</mat-option>
+                    <mat-option value="Coche">Coche</mat-option>
+                    <mat-option value="Moto">Moto</mat-option>
+                    <mat-option value="Autobús">Autobús</mat-option>
+                </mat-select>
+                @if(isValidForm('tipo')){
+                <mat-error>{{mostrarError('tipo')}}</mat-error>
+                }
+            </mat-form-field>
+        </form>
+        <div class="btn-addVehiculo">
+            <button mat-button mat-dialog-close (click)="guardarCambios()"
+                [disabled]="vehiculoForm.invalid">Guardar cambios</button>
+            <button mat-button mat-dialog-close (click)="cerrar()">Cancelar</button>
+        </div>
+    </mat-dialog-content>
+</div>

@@ -70,6 +70,22 @@ section {
   text-align: center;
 }
 
+.mapa {
+  grid-column: span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.mapa img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
 .footer-card {
   display: flex;
   gap: 1rem;

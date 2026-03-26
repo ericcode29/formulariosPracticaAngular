@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { DatosTabla } from '../interfaces/datosTabla.interface';
+import { DatosTabla, Vehiculo } from '../interfaces/datosTabla.interface';
 import { HomePage } from '../pages/homePage/homePage'
 
 @Injectable({
@@ -34,7 +34,10 @@ export class ObtenerDatosService {
         tarjeta: '111222333R',
         estado: 'Aparcao',
         tipo: 'Camión',
-        ultimaPosicion: {}
+        ultimaPosicion: {
+          src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVNKcWkl9e6q9st7loHTXZLfoPM-uroYj3w&s',
+          alt: 'imagen google maps'
+        }
       }]
     },
     {
@@ -54,6 +57,7 @@ export class ObtenerDatosService {
   historial = signal<Set<string>>(new Set(['']))
   clienteSeleccionado = signal<DatosTabla[]>([])
   indexClienteSeleccionado = signal<number>(0)
+  vehiculoSeleccionado = signal<Vehiculo | null>(null)
 
   obtenerDatos(): DatosTabla[] {
     return this.datos()

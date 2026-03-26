@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+div form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-addVehiculo {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}

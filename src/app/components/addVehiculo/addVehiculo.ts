@@ -32,7 +32,7 @@ export class AddVehiculo {
 
   cliente = this.datosService.clienteSeleccionado()
 
-  matriculaRgx = '^[0-9]{4}[ABCDFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]{3}$'
+  matriculaRgx = '^[0-9]{4}[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]{3}$'
 
   vehiculoForm: FormGroup = this.fb.group({
     vehiculo: ['', [Validators.required, Validators.pattern(this.matriculaRgx)]],
@@ -73,7 +73,10 @@ export class AddVehiculo {
       tarjeta: newVehiculo['tarjeta'],
       estado: '',
       tipo: newVehiculo['tipo'],
-      ultimaPosicion: {}
+      ultimaPosicion: {
+        src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVNKcWkl9e6q9st7loHTXZLfoPM-uroYj3w&s',
+        alt: 'imagen google maps'
+      }
     };
 
     cliente.vehiculo.push(vehiculo)
