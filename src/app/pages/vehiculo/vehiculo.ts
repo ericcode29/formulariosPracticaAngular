@@ -14,6 +14,8 @@ import {
 import { DatosTabla, Vehiculo } from '../../interfaces/datosTabla.interface';
 import { AddVehiculo } from '../../components/addVehiculo/addVehiculo';
 import { EditarVehiculo } from '../../components/editarVehiculo/editarVehiculo';
+import { ConfirmarEliminar } from '../../components/confirmarEliminar/confirmarEliminar';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-vehiculo',
@@ -35,18 +37,30 @@ export class VehiculoPage {
     return seleccion[0]
   })
 
-  vehiculo = computed(() => {
-    return this.cliente()?.vehiculo
-  })
-
   addVehiculo(cliente: DatosTabla) {
-    console.log(cliente)
     this.dialog.open(AddVehiculo)
   }
 
   editar(v: Vehiculo) {
     this.datosService.vehiculoSeleccionado.set(v);
     this.dialog.open(EditarVehiculo);
+  }
+
+  eliminarVehiculo(v: Vehiculo) {
+
+    const dialog = this.dialog.open(ConfirmarEliminar)
+
+    dialog.afterClosed().subscribe(respuesta => {
+      if (respuesta) {
+        const vehiculos = this.cliente().vehiculo.filter(i => i != v)
+        this.datosService.clienteSeleccionado()[0].vehiculo = vehiculos
+
+        this.datosService.clienteSeleccionado.update(datos => [...datos])
+      }
+    })
+
+
+
   }
 }
 

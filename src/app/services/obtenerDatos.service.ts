@@ -9,7 +9,7 @@ export class ObtenerDatosService {
 
   datos = signal<DatosTabla[]>([
     {
-      usuario: 'Alfredo',
+      usuario: 'Juanjo',
       empresa: 'Una cualquiera',
       cif: 'ABCD12345',
       telefono: 987654321,
@@ -20,7 +20,7 @@ export class ObtenerDatosService {
       vehiculo: []
     },
     {
-      usuario: 'Alfredo +',
+      usuario: 'Alfredo',
       empresa: 'Una cualquiera',
       cif: 'ABCD12345',
       telefono: 987654321,
@@ -41,7 +41,7 @@ export class ObtenerDatosService {
       }]
     },
     {
-      usuario: 'Alfredo',
+      usuario: 'Pepe',
       empresa: 'Una cualquiera',
       cif: 'ABCD12345',
       telefono: 987654321,
