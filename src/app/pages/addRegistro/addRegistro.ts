@@ -59,7 +59,7 @@ export class AddRegistro {
   }
 
   isValidForm(nombreInput: string): boolean | null {
-    return (this.addForm.controls[nombreInput].errors && this.addForm.controls[nombreInput].touched)
+    return (this.addForm.controls[nombreInput].errors && this.addForm.controls[nombreInput].touched && this.addForm.controls[nombreInput].pristine)
   }
 
   crearUsuario() {
@@ -95,8 +95,11 @@ export class AddRegistro {
       tipo: ''
     })
 
-    window.alert('Usuario añadido')
-    this.router.navigate([''])
+    this.addForm.markAsPristine()
+    this.addForm.markAsUntouched()
+
+    //window.alert('Usuario añadido')
+    //this.router.navigate([''])
 
 
   }

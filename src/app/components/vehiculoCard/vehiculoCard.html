@@ -1,0 +1,39 @@
+<mat-card appearance="outlined" class="card">
+    <mat-card-header class="header-card">
+        <mat-card-title>{{vehiculo().vehiculo}}</mat-card-title>
+        <mat-card-subtitle>{{vehiculo().tipo}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content-card">
+        <div>
+            <h4>Dispositivo</h4>
+            <p>{{vehiculo().dispositivo}}</p>
+        </div>
+        <div>
+            <h4>Tarjeta</h4>
+            <p>{{vehiculo().tarjeta}}</p>
+        </div>
+        <div>
+            <h4>Estado</h4>
+            <p>{{vehiculo().estado}}</p>
+        </div>
+        <div>
+            <h4>Direccion</h4>
+            <p>Calle Veosat</p>
+        </div>
+        <div>
+            <h4>Señal GPS</h4>
+            <p>👌</p>
+        </div>
+        <div>
+            <h4>Señal GSM</h4>
+            <p>✅</p>
+        </div>
+        <section class="mapa">
+            <img mat-card-md-image [src]="vehiculo().ultimaPosicion.src" [alt]="vehiculo().ultimaPosicion.alt">
+        </section>
+    </mat-card-content>
+    <mat-card-footer class="footer-card">
+        <button mat-mini-fab (click)="editar(vehiculo())">📝</button>
+        <button mat-mini-fab (click)="eliminarVehiculo(vehiculo())">🗑️</button>
+    </mat-card-footer>
+</mat-card>

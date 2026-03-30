@@ -1,0 +1,66 @@
+:host {
+  display: block;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #d7e3ff;
+}
+
+.header-card {
+  color: white;
+  background-color: #0057E6;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.mat-mdc-card-subtitle {
+  color: white;
+}
+
+.content-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+}
+
+.mapa {
+  grid-column: span 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.mapa img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.footer-card {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-card .mat-mdc-mini-fab {
+  background-color: #0057E6;
+}

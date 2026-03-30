@@ -16,6 +16,7 @@ import { AddVehiculo } from '../../components/addVehiculo/addVehiculo';
 import { EditarVehiculo } from '../../components/editarVehiculo/editarVehiculo';
 import { ConfirmarEliminar } from '../../components/confirmarEliminar/confirmarEliminar';
 import { tap } from 'rxjs';
+import { VehiculoCard } from "../../components/vehiculoCard/vehiculoCard";
 
 @Component({
   selector: 'app-vehiculo',
@@ -23,6 +24,7 @@ import { tap } from 'rxjs';
     RouterLink,
     MatMiniFabButton,
     MatCardModule,
+    VehiculoCard
   ],
   templateUrl: './vehiculo.html',
   styleUrl: './vehiculo.css',
@@ -41,26 +43,5 @@ export class VehiculoPage {
     this.dialog.open(AddVehiculo)
   }
 
-  editar(v: Vehiculo) {
-    this.datosService.vehiculoSeleccionado.set(v);
-    this.dialog.open(EditarVehiculo);
-  }
-
-  eliminarVehiculo(v: Vehiculo) {
-
-    const dialog = this.dialog.open(ConfirmarEliminar)
-
-    dialog.afterClosed().subscribe(respuesta => {
-      if (respuesta) {
-        const vehiculos = this.cliente().vehiculo.filter(i => i != v)
-        this.datosService.clienteSeleccionado()[0].vehiculo = vehiculos
-
-        this.datosService.clienteSeleccionado.update(datos => [...datos])
-      }
-    })
-
-
-
-  }
 }
 
