@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { DatosTabla } from '../../interfaces/datosTabla.interface';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
@@ -20,7 +20,6 @@ import { RouterLink } from "@angular/router";
   imports: [TableModule, MatButtonModule, RouterLink],
   templateUrl: './homePage.html',
   styleUrl: './homePage.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {
 
@@ -28,6 +27,8 @@ export class HomePage {
   dialog = inject(MatDialog)
   clienteSeleccionado = this.datosService.clienteSeleccionado
   index = this.datosService.indexClienteSeleccionado
+
+  columns = signal(['usuario', 'empresa', 'telefono', 'direccion', 'comercial', 'tipo'])
 
 
   his = computed(() => {
@@ -51,10 +52,6 @@ export class HomePage {
 
   borrarHistorial(value: string) {
     this.datosService.historial().delete(value)
-  }
-
-  getIndex(i: number) {
-    console.log(i)
   }
 
   editarCliente(cliente: DatosTabla) {

@@ -22,11 +22,11 @@
         </div>
         <div>
             <h4>Señal GPS</h4>
-            <p>👌</p>
+            <p>{{vehiculo().gps}}</p>
         </div>
         <div>
             <h4>Señal GSM</h4>
-            <p>✅</p>
+            <p>{{vehiculo().gsm}}</p>
         </div>
         <section class="mapa">
             <img mat-card-md-image [src]="vehiculo().ultimaPosicion.src" [alt]="vehiculo().ultimaPosicion.alt">

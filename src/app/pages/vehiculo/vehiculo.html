@@ -8,8 +8,11 @@
         <div class="spacer"></div>
     </header>
     <div class="cards">
-        @for (v of cliente().vehiculo; track $index) {
+        @for (v of cliente().vehiculo; track v) {
         <vehiculo-card [vehiculo]="v" />
         }
+    </div>
+    <div>
+        <vehiculo-tabla [vehiculos]="cliente().vehiculo" />
     </div>
 </section>

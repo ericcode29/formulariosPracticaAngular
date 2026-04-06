@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.btns {
+  display: flex;
+  gap: 1em;
+}
+
+.btns .mat-mdc-mini-fab {
+  background-color: #0057E6;
+}

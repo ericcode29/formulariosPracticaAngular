@@ -73,6 +73,8 @@ export class AddVehiculo {
       tarjeta: newVehiculo['tarjeta'],
       estado: '',
       tipo: newVehiculo['tipo'],
+      gps: '👌',
+      gsm: '✅',
       ultimaPosicion: {
         src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVVNKcWkl9e6q9st7loHTXZLfoPM-uroYj3w&s',
         alt: 'imagen google maps'

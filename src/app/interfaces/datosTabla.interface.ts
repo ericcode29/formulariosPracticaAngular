@@ -18,6 +18,8 @@ export interface Vehiculo {
     tarjeta: string,
     estado: string,
     tipo: string,
+    gps: string,
+    gsm: string,
     ultimaPosicion: {
         src: string;
         alt: string;

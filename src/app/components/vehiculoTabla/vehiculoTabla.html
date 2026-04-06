@@ -1,0 +1,55 @@
+<div>
+    <section>
+        @for (item of campos; track item) {
+        <mat-checkbox [value]="item" (change)="check(item)"
+            [checked]="columnas().includes(item)">{{item}}</mat-checkbox>
+        }
+    </section>
+    <section>
+        <p-table [value]="vehiculos()" [columns]="columnas()" [reorderableColumns]="true" stripedRows>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    @for (col of columns; track col) {
+                    <th pReorderableColumn>
+                        @switch (col) {
+                        @case ('matricula') {Matricula}
+                        @case ('dispositivo') {Dispositivo}
+                        @case ('tarjeta') {Tarjeta}
+                        @case ('estado') {Estado}
+                        @case ('direccion') {Dirección}
+                        @case ('gps') {Señal GPS}
+                        @case ('gsm') {Señal GSM}
+                        @case ('img') {Imagen}
+                        }
+                    </th>
+                    }
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-v let-columns="columns">
+                <tr>
+                    @for (col of columns; track col) {
+                    <td>
+                        @switch (col) {
+                        @case ('dispositivo') { {{v.dispositivo}} }
+                        @case ('tarjeta') { {{v.tarjeta}} }
+                        @case ('estado') { {{v.estado}} }
+                        @case ('direccion') { {{v.direccion}} }
+                        @case ('gps') { {{v.gps}} }
+                        @case ('gsm') { {{v.gsm}} }
+                        @case ('matricula') { {{v.vehiculo}} }
+                        <!-- falta imagen -->
+                        }
+                    </td>
+                    }
+                    @if(columnas().length > 0){
+                    <td class="btns">
+                        <button mat-mini-fab (click)="editar(v)">📝</button>
+                        <button mat-mini-fab (click)="eliminarVehiculo(v)">🗑️</button>
+                    </td>
+                    }
+                </tr>
+            </ng-template>
+        </p-table>
+    </section>
+</div>

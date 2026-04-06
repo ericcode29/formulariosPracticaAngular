@@ -24,26 +24,39 @@
 
     <section class="tabla">
         <h1>Datos clientes</h1>
-        <p-table [value]="datos()" stripedRows>
-            <ng-template pTemplate="header">
+        <p-table [value]="datos()" [columns]="columns()" stripedRows [reorderableColumns]="true">
+            <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th>Usuario</th>
-                    <th>Empresa <br /> CIF</th>
-                    <th>Teléfono <br /> Email</th>
-                    <th>Dirección</th>
-                    <th>Comercial</th>
-                    <th>Tipo</th>
+                    @for (col of columns; track col) {
+                    <th pReorderableColumn>
+                        @switch (col) {
+                        @case ('usuario') { Usuario }
+                        @case ('empresa') { Empresa <br /> CIF }
+                        @case ('telefono') { Teléfono <br /> Email }
+                        @case ('direccion') { Dirección }
+                        @case ('comercial') { Comercial }
+                        @case ('tipo') { Tipo }
+                        }
+                    </th>
+                    }
                     <th></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-dato let-i="rowIndex">
+            <ng-template pTemplate="body" let-dato let-i="rowIndex" let-columns="columns">
                 <tr>
-                    <td>{{dato.usuario}}</td>
-                    <td>{{dato.empresa}}<br />{{dato.cif}}</td>
-                    <td>{{dato.telefono}}<br />{{dato.email}}</td>
-                    <td>{{dato.direccion}}</td>
-                    <td>{{dato.comercial}}</td>
-                    <td>{{dato.tipo}}</td>
+                    @for (col of columns; track col) {
+                    <td>
+                        @switch (col) {
+                        @case ('usuario') { {{dato.usuario}} }
+                        @case ('empresa') { {{dato.empresa}} <br /> {{dato.cif}} }
+                        @case ('telefono') { {{dato.telefono}} <br /> {{dato.email}} }
+                        @case ('direccion') { {{dato.direccion}} }
+                        @case ('comercial') { {{dato.comercial}} }
+                        @case ('tipo') { {{dato.tipo}} }
+                        }
+
+                    </td>
+                    }
                     <td class="grupo-btn">
                         <button mat-mini-fab class="btn-edit" (click)="editarCliente(dato)">📝</button>
                         <a routerLink="/vehiculos">

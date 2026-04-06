@@ -11,12 +11,10 @@ import {
   MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { DatosTabla, Vehiculo } from '../../interfaces/datosTabla.interface';
+import { DatosTabla } from '../../interfaces/datosTabla.interface';
 import { AddVehiculo } from '../../components/addVehiculo/addVehiculo';
-import { EditarVehiculo } from '../../components/editarVehiculo/editarVehiculo';
-import { ConfirmarEliminar } from '../../components/confirmarEliminar/confirmarEliminar';
-import { tap } from 'rxjs';
 import { VehiculoCard } from "../../components/vehiculoCard/vehiculoCard";
+import { VehiculoTabla } from "../../components/vehiculoTabla/vehiculoTabla";
 
 @Component({
   selector: 'app-vehiculo',
@@ -24,7 +22,8 @@ import { VehiculoCard } from "../../components/vehiculoCard/vehiculoCard";
     RouterLink,
     MatMiniFabButton,
     MatCardModule,
-    VehiculoCard
+    VehiculoCard,
+    VehiculoTabla
   ],
   templateUrl: './vehiculo.html',
   styleUrl: './vehiculo.css',
