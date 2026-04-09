@@ -6,7 +6,13 @@
         }
     </section>
     <section>
-        <p-table [value]="vehiculos()" [columns]="columnas()" [reorderableColumns]="true" stripedRows>
+        <mat-form-field appearance="outline">
+            <mat-label>Buscar en tabla</mat-label>
+            <input matInput type="text" (input)="ft.filterGlobal($any($event.target).value, 'contains')"
+                placeholder="Buscar en tabla">
+        </mat-form-field>
+        <p-table #ft [globalFilterFields]="['vehiculo','dispositivo','tarjeta','tipo']" [value]="vehiculos()"
+            [columns]="columnas()" [reorderableColumns]="true" stripedRows>
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     @for (col of columns; track col) {
@@ -38,14 +44,17 @@
                         @case ('gps') { {{v.gps}} }
                         @case ('gsm') { {{v.gsm}} }
                         @case ('matricula') { {{v.vehiculo}} }
-                        <!-- falta imagen -->
+                        @case ('img'){
+                        <img src="{{v.ultimaPosicion.src}}" alt="{{v.ultimaPosicion.alt}}" />}
                         }
                     </td>
                     }
                     @if(columnas().length > 0){
-                    <td class="btns">
-                        <button mat-mini-fab (click)="editar(v)">📝</button>
-                        <button mat-mini-fab (click)="eliminarVehiculo(v)">🗑️</button>
+                    <td class="td-btns">
+                        <div class="btns">
+                            <button mat-mini-fab (click)="editar(v)">📝</button>
+                            <button mat-mini-fab (click)="eliminarVehiculo(v)">🗑️</button>
+                        </div>
                     </td>
                     }
                 </tr>

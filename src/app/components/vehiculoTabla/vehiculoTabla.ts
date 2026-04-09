@@ -8,10 +8,12 @@ import { EditarVehiculo } from '../editarVehiculo/editarVehiculo';
 import { ObtenerDatosService } from '../../services/obtenerDatos.service';
 import { ConfirmarEliminar } from '../confirmarEliminar/confirmarEliminar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormField, MatLabel } from "@angular/material/form-field";
+import { MatInput } from "@angular/material/input";
 
 @Component({
   selector: 'vehiculo-tabla',
-  imports: [TableModule, MatRadioModule, MatCheckboxModule, MatButtonModule],
+  imports: [TableModule, MatRadioModule, MatCheckboxModule, MatButtonModule, MatFormField, MatLabel, MatInput],
   templateUrl: './vehiculoTabla.html',
   styleUrl: './vehiculoTabla.css',
 })
