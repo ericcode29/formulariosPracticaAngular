@@ -1,0 +1,88 @@
+<div style="margin: 1rem;">
+    <section>
+        <h2>Resumen</h2>
+        <ul class="resumen">
+            <li>
+                <div class="icon-resumen">
+                    <mat-icon fontIcon="local_gas_station"></mat-icon>
+                    <div>
+                        <p>Consumo total</p>
+                        <p>{{consumoTotal()}} L</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="icon-resumen">
+                    <mat-icon fontIcon="local_gas_station"></mat-icon>
+                    <div>
+                        <p>Consumo medio total</p>
+                        <p>{{consumoMedioTotal()}} L/100km</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="icon-resumen">
+                    <mat-icon fontIcon="co2"></mat-icon>
+                    <div>
+                        <p>Toneladas CO2</p>
+                        <p>{{toneladasCO2()}} kg</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="icon-resumen">
+                    <mat-icon fontIcon="route"></mat-icon>
+                    <div>
+                        <p>Distancia total</p>
+                        <p>{{distaciaTotal()}} km</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="icon-resumen">
+                    <mat-icon fontIcon="av_timer"></mat-icon>
+                    <div>
+                        <p>Tiempo ralentí total</p>
+                        <p>{{tiempoRTotal().horas}} h {{tiempoRTotal().mins}}m</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <p-table [value]="datos()" [columns]="columnas()" stripedRows [reorderableColumns]="true" class="tabla">
+        <ng-template pTemplate="header">
+            @for (col of columnas(); track col) {
+            <th pReorderableColumn>
+                {{col}}
+            </th>
+            }
+        </ng-template>
+        <ng-template pTemplate="body" let-dato let-comluns="columnas">
+            <tr>
+                @for(col of columnas(); track col){
+                <td>
+                    @switch (col) {
+                    @case ('I') {<mat-icon fontIcon="{{dato.i}}"></mat-icon>}
+                    @case ('V') {{{dato.v}}}
+                    @case ('D') {{{dato.d}}}
+                    @case ('C') {{{dato.c}}}
+                    @case ('Cm') {{{dato.cm}}}
+                    @case ('Cr') {{{dato.cr}}}
+                    @case ('T') {{{dato.t}}}
+                    @case ('Tr') {{{dato.tr}}}
+                    @case ('Tc') {{{dato.tc}}}
+                    @case ('Vmx') {{{dato.vmx}}}
+                    @case ('Vm') {{{dato.vm}}}
+                    @case ('Frena') {{{dato.frena}}}
+                    @case ('Aceler') {{{dato.aceler}}}
+                    @case ('Giros') {{{dato.giros}}}
+                    @case ('CO2') {{{dato.co2}}}
+                    @case ('Pnt.Media') {{{dato.pntmed}}}
+                    @case ('Semana anterior') {{{dato.semant}}}
+                    }
+                </td>
+                }
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

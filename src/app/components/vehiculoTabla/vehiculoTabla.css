@@ -1,19 +1,65 @@
 :host {
   display: block;
+  background-color: #f4f7fa;
+  padding: 1.5rem;
+  border-radius: 20px;
 }
 
-td .td-btns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Necesitamos que la tabla separe sus celdas para poder redondear las filas */
+::ng-deep .p-datatable-table {
+  border-collapse: separate !important;
+  border-spacing: 0 12px !important;
+  /* Espacio entre cada "tarjeta" */
+}
+
+/* Estilo de la cabecera */
+::ng-deep .p-datatable-thead>tr>th {
+  background: transparent !important;
+  border: none !important;
+  color: black !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.fila-tabla td {
+  padding: 1rem !important;
+  text-align: center;
+}
+
+/* Redondeado ovalado del extremo izquierdo */
+.fila-tabla td:first-child {
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  padding-left: 2rem !important;
+}
+
+/* Redondeado ovalado del extremo derecho */
+.fila-tabla td:last-child {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  padding-right: 2rem !important;
+}
+
+.contenido-tabla img {
+  object-fit: cover;
+  border: 2px solid #0057E6;
+  border-radius: 20px;
 }
 
 .btns {
   display: flex;
-  justify-content: center;
-  gap: 0.5em;
+  gap: 0.3rem;
 }
 
 .btns .mat-mdc-mini-fab {
   background-color: #0057E6;
+  color: white;
+  transition: transform 0.2s;
+  padding: 1rem;
+}
+
+.btns .mat-mdc-mini-fab:hover {
+  transform: scale(1.1);
 }

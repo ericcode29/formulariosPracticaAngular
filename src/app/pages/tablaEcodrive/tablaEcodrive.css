@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.resumen {
+  display: flex;
+  margin: 1rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.icon-resumen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+.tabla td {
+  text-align: center;
+}

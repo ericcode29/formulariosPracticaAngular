@@ -1,18 +1,13 @@
 <section class="nav-section">
     <mat-form-field appearance="outline" class="buscador-input">
         <mat-label>Buscar</mat-label>
-        <input type="text"
-        #buscar 
-        matInput 
-        placeholder="Buscar ..." 
-        (input)="filtro(buscar.value)"
-        (blur)="datosService.addHistorial(buscar.value)"
-        (blur)="buscar.value = ''"
-        >
+        <input type="text" #buscar matInput placeholder="Buscar ..." (input)="filtro(buscar.value)"
+            (blur)="datosService.addHistorial(buscar.value)" (blur)="buscar.value = ''">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <nav>
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
         <a routerLink="/registros" routerLinkActive="active">Añadir registro</a>
+        <a routerLink="/ecodrive" routerLinkActive="active">EcoDrive</a>
     </nav>
 </section>

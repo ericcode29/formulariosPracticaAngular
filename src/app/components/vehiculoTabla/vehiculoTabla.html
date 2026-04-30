@@ -12,7 +12,7 @@
                 placeholder="Buscar en tabla">
         </mat-form-field>
         <p-table #ft [globalFilterFields]="['vehiculo','dispositivo','tarjeta','tipo']" [value]="vehiculos()"
-            [columns]="columnas()" [reorderableColumns]="true" stripedRows>
+            [columns]="columnas()" [reorderableColumns]="true">
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     @for (col of columns; track col) {
@@ -25,7 +25,7 @@
                         @case ('direccion') {Dirección}
                         @case ('gps') {Señal GPS}
                         @case ('gsm') {Señal GSM}
-                        @case ('img') {Imagen}
+                        @case ('img') {Ubicación}
                         }
                     </th>
                     }
@@ -33,9 +33,9 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-v let-columns="columns">
-                <tr>
+                <tr class="fila-tabla">
                     @for (col of columns; track col) {
-                    <td>
+                    <td class="contenido-tabla">
                         @switch (col) {
                         @case ('dispositivo') { {{v.dispositivo}} }
                         @case ('tarjeta') { {{v.tarjeta}} }
